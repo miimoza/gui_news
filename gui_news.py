@@ -12,19 +12,20 @@ def main():
 
 def gui_news():
     # GET NEWS
-
-
+    news_vitry = getNews("ile-de-france",  "val-de-marne", "vitry-sur-seine")
+    news_vdm = getNews("ile-de-france",  "val-de-marne")
+    news_idf = getNews("ile-de-france")
 
     os.system('clear')
-
 
     print("="*29 + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(20) + "]" + "="*29)
     print("-"*30 + " NEWS VITRY ".center(20,"-") + "-"*24 + "-(94)-")
 
 
-    printNews(2, 6, 80, "ile-de-france", "val-de-marne", "vitry-sur-seine")
-    printNews(8, 13, 80, "ile-de-france", "val-de-marne")
-    printNews(15, 20, 80, "ile-de-france")
+
+    printNews(news_vitry, 2, 6, 80)
+    printNews(news_vdm, 8, 13, 80)
+    printNews(news_idf, 15, 20, 80)
 
 
 
@@ -45,9 +46,8 @@ def getNews(region, departement = "", city = "", page=1):
     return {"posts":posts, "dates":dates};
 
 
-def printNews(n, n_max, width, region, departement = "", city = ""):
-    res = getNews(region, departement, city)
-    posts, dates = res["posts"], res["dates"]
+def printNews(news, n, n_max, width):
+    posts, dates = news["posts"], news["dates"]
     nn = n
     for i in range(0, 19):
         nn = display.breakline_n(0, nn, width, n_max + 1, '[ ' + dates[i].text.ljust(5) + ' ] '+  posts[i]['title'])

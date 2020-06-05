@@ -13,8 +13,8 @@ while True:
 	gui_news.main()
 
 
-	display.move_cursor(28, 0)
-	print("="*80)
-	for i in range(0, 80):
+	display.move_cursor(50, 0)
+	print("="*128)
+	for i in range(0, 128):
 	    print('.',end='', flush=True)
 	    time.sleep(0.2)
