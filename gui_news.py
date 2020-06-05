@@ -22,9 +22,9 @@ def gui_news():
     print("-"*30 + " NEWS VITRY ".center(20,"-") + "-"*24 + "-(94)-")
 
 
-    printNews(2, 5, 80, "ile-de-france", "val-de-marne", "vitry-sur-seine")
-    printNews(11, 20, 80, "ile-de-france", "val-de-marne")
-    printNews(21, 30, 80, "ile-de-france")
+    printNews(2, 6, 80, "ile-de-france", "val-de-marne", "vitry-sur-seine")
+    printNews(8, 13, 80, "ile-de-france", "val-de-marne")
+    printNews(15, 20, 80, "ile-de-france")
 
 
 
@@ -48,8 +48,10 @@ def getNews(region, departement = "", city = "", page=1):
 def printNews(n, n_max, width, region, departement = "", city = ""):
     res = getNews(region, departement, city)
     posts, dates = res["posts"], res["dates"]
+    nn = n
     for i in range(0, 19):
-        n = display.breakline_n(0, n, width, n_max, '[ ' + dates[i].text.ljust(5) + ' ] '+  posts[i]['title'])
+        nn = display.breakline_n(0, nn, width, n_max + 1, '[ ' + dates[i].text.ljust(5) + ' ] '+  posts[i]['title'])
+
 
 def idf():
         region="ile-de-france"
