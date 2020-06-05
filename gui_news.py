@@ -2,7 +2,7 @@ import display
 import os
 import datetime
 from bs4 import BeautifulSoup
-from datetime import datetime
+import datetime
 
 def main():
 	display.move_cursor(0,0)
@@ -31,7 +31,7 @@ def getNews(region, departement = "", city = "", page=1):
     else:
         request = "https://faitsdivers365.fr/" + region + "/" + departement + "/" + city + "/"
 
-    
+
     html_doc = requests.get(request)
     soup = BeautifulSoup(html_doc.text, "html.parser")
 
