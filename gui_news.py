@@ -3,6 +3,7 @@ import os
 import datetime
 from bs4 import BeautifulSoup
 import datetime
+import requests
 
 def main():
 	display.move_cursor(0,0)
