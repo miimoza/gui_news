@@ -46,13 +46,13 @@ def getToday(region, departement = "", city = ""):
     res = getNews(region, departement, city)
     posts, dates = res["posts"], res["dates"]
 
-    d0 =  datetime.datetime.strptime(dates[0].text, '%H:%M')
+    d0 = datetime.datetime.strptime(dates[0].text, '%H:%M')
     print(d0)
     print("="*20 + "[ NEWS:" + (region + ", " + departement + ", " + city).center(50) +"]" + "="*20)
 
     page = 1;
     i = 0;
-    while (datetime.strptime(dates[i].text, '%H:%M') <= d0):
+    while (datetime.datetime.strptime(dates[i].text, '%H:%M') <= d0):
         print('[ ' + dates[i].text.ljust(5) + ' ] '+  posts[i]['title'])
         i+=1
         if (i >= len(posts)):
