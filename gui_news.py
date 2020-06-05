@@ -22,17 +22,9 @@ def gui_news():
     print("-"*30 + " NEWS VITRY ".center(20,"-") + "-"*24 + "-(94)-")
 
 
-    n = 3
-    width = 80
-    n_max = 30
-
-    res = getNews("ile-de-france", "val-de-marne", "vitry-sur-seine")
-    posts, dates = res["posts"], res["dates"]
-    for i in range(0, 19):
-        print('[ ' + dates[i].text.ljust(5) + ' ] '+  posts[i]['title'])
-        n = display.print_n(49, n, '-'*10 + dates[i].text.center(10, '-') + '-'*10)
-        n = display.breakline_n(49, n, width, n_max, posts[i]['title'])
-
+    printNews(2, 5, 80, "ile-de-france", "val-de-marne", "vitry-sur-seine")
+    printNews(11, 20, 80, "ile-de-france", "val-de-marne")
+    printNews(21, 30, 80, "ile-de-france")
 
 
 
@@ -53,24 +45,11 @@ def getNews(region, departement = "", city = "", page=1):
     return {"posts":posts, "dates":dates};
 
 
-def getToday(region, departement = "", city = ""):
+def printNews(n, n_max, width, region, departement = "", city = ""):
     res = getNews(region, departement, city)
     posts, dates = res["posts"], res["dates"]
-
-    d0 = datetime.datetime.strptime(dates[0].text, '%H:%M')
-    print(d0)
-    print("="*20 + "[ NEWS:" + (region + ", " + departement + ", " + city).center(50) +"]" + "="*20)
-
-    page = 1;
-    i = 0;
-    while (datetime.datetime.strptime(dates[i].text, '%H:%M') <= d0):
-        print('[ ' + dates[i].text.ljust(5) + ' ] '+  posts[i]['title'])
-        i+=1
-        if (i >= len(posts)):
-            page += 1
-            res = getNews(region, departement, city, page)
-            posts, dates = res["posts"], res["dates"]
-            i = 0
+    for i in range(0, 19):
+        n = display.breakline_n(0, n, width, n_max, '[ ' + dates[i].text.ljust(5) + ' ] '+  posts[i]['title'])
 
 def idf():
         region="ile-de-france"
