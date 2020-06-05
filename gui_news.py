@@ -19,13 +19,12 @@ def gui_news():
     os.system('clear')
 
     print("="*53 + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(20) + "]" + "="*53)
-    print("-"*54 + " NEWS VITRY ".center(20,"-") + "-"*48 + "-(94)-")
-
-
-
-    printNews(news_vitry, 2, 6, 80)
-    printNews(news_vdm, 8, 13, 80)
-    printNews(news_idf, 15, 20, 80)
+    display.print_n(0, 1, "-"*54 + " NEWS VITRY ".center(20,"-") + "-"*48 + "-(94)-")
+    printNews(news_vitry, 2, 16, 128)
+    display.print_n(0, 16, "-"*54 + " NEWS 94 ".center(20,"-") + "-"*48 + "-(94)-")
+    printNews(news_vdm, 17, 31, 128)
+    display.print_n(0, 31, "-"*54 + " NEWS IDF ".center(20,"-") + "-"*48 + "-(94)-")
+    printNews(news_idf, 32, 46, 128)
 
 
 
@@ -50,7 +49,7 @@ def printNews(news, n, n_max, width):
     posts, dates = news["posts"], news["dates"]
     nn = n
     for i in range(0, 19):
-        nn = display.breakline_n(0, nn, width, n_max + 1, '[ ' + dates[i].text.ljust(5) + ' ] '+  posts[i]['title'])
+        nn = display.breakline_n(0, nn, width - 1, n_max, '[ ' + dates[i].text.ljust(5) + ' ] '+  posts[i]['title'])
 
 
 def idf():

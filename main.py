@@ -17,4 +17,4 @@ while True:
 	print("="*128)
 	for i in range(0, 128):
 	    print('.',end='', flush=True)
-	    time.sleep(0.2)
+	    time.sleep(5)
