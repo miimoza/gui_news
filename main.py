@@ -20,4 +20,4 @@ while True:
         print('.',end='', flush=True)
         if i % 10 == 0:
             gui_news.printTC()
-        time.sleep(5)
+        time.sleep(30)
