@@ -34,15 +34,7 @@ def gui_news():
     page = 1;
     i = 0;
     while (i < 20):
-        if datetime.datetime.strptime(dates[i].text, '%H:%M') <= d0:
-            print("="*30)
         print('[ ' + dates[i].text.ljust(5) + ' ] '+  posts[i]['title'])
-        i+=1
-        if (i >= len(posts)):
-            page += 1
-            res = getNews("ile-de-france", "val-de-marne", "vitry-sur-seine")
-            posts, dates = res["posts"], res["dates"]
-            i = 0
 
 
 
