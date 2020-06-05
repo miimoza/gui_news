@@ -22,10 +22,16 @@ def gui_news():
     print("-"*30 + " NEWS VITRY ".center(20,"-") + "-"*24 + "-(94)-")
 
 
+    n = 3
+    width = 80
+    n_max = 30
+
     res = getNews("ile-de-france", "val-de-marne", "vitry-sur-seine")
     posts, dates = res["posts"], res["dates"]
     for i in range(0, 19):
         print('[ ' + dates[i].text.ljust(5) + ' ] '+  posts[i]['title'])
+        n = display.print_n(49, n, '-'*10 + dates[i].text.center(10, '-') + '-'*10)
+        n = display.breakline_n(49, n, width, n_max, posts[i]['title'])
 
 
 
