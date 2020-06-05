@@ -18,8 +18,8 @@ def gui_news():
 
     os.system('clear')
 
-    print("="*29 + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(20) + "]" + "="*29)
-    print("-"*30 + " NEWS VITRY ".center(20,"-") + "-"*24 + "-(94)-")
+    print("="*53 + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(20) + "]" + "="*53)
+    print("-"*54 + " NEWS VITRY ".center(20,"-") + "-"*48 + "-(94)-")
 
 
 
