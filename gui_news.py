@@ -3,27 +3,31 @@ import os
 import datetime
 from bs4 import BeautifulSoup
 import datetime
+from requests.auth import HTTPBasicAuth
 import requests
+import xml.etree.ElementTree as ET
 
 def main():
-	display.move_cursor(0,0)
-	gui_news()
+    display.move_cursor(0,0)
+    gui_news()
 
 
 def gui_news():
     # GET NEWS
+
     news_vitry = getNews("ile-de-france",  "val-de-marne", "vitry-sur-seine")
     news_vdm = getNews("ile-de-france",  "val-de-marne")
     news_idf = getNews("ile-de-france")
 
+
     os.system('clear')
 
     print("="*53 + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(20) + "]" + "="*53)
-    display.print_n(0, 1, "-"*54 + " NEWS VITRY ".center(20,"-") + "-"*48 + "-(94)-")
+    display.print_n(0, 1, "-"*54 + " NEWS VITRY ".center(20,"-") + "-"*54)
     printNews(news_vitry, 2, 16, 128)
-    display.print_n(0, 16, "-"*54 + " NEWS 94 ".center(20,"-") + "-"*48 + "-(94)-")
+    display.print_n(0, 16, "-"*54 + " NEWS VITRY ".center(20,"-") + "-"*54)
     printNews(news_vdm, 17, 31, 128)
-    display.print_n(0, 31, "-"*54 + " NEWS IDF ".center(20,"-") + "-"*48 + "-(94)-")
+    display.print_n(0, 31, "-"*54 + " NEWS VITRY ".center(20,"-") + "-"*54)
     printNews(news_idf, 32, 46, 128)
 
 
@@ -50,6 +54,25 @@ def printNews(news, n, n_max, width):
     nn = n
     for i in range(0, 19):
         nn = display.breakline_n(0, nn, width - 1, n_max, '[ ' + dates[i].text.ljust(5) + ' ] '+  posts[i]['title'])
+
+def printTC():
+    # GET TRANSPORT
+    #r_C_ALL = requests.get('https://api.transilien.com/gare/87545293/depart', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
+    r_C_BNF = requests.get('https://api.transilien.com/gare/87545293/depart/87328328', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
+    r_C_CHS = requests.get('https://api.transilien.com/gare/87545293/depart/87545285', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
+    H_C_BNF = ET.fromstring(r_C_BNF.content)
+    H_C_CHS = ET.fromstring(r_C_CHS.content)
+
+    display.print_n(0, 46, "="*43 + "< RER C >-" + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(20) + "]" + "-< RER C >" + "="*43)
+    i = 0
+    for E_C_BNF, E_C_CHS in zip(H_C_BNF.findall('train'), H_C_CHS.findall('train')):
+
+        if i < 2:
+            print("<<<" +str(i) +">>>")
+            display.print_n(0, 47 + i, (E_C_BNF.find('date').text + ' ' + E_C_BNF.find('miss').text).center(24), end='|')
+            display.print_n(20, 47 + i, (E_C_CHS.find('date').text + ' ' + (E_C_CHS.find('miss').text)).center(23))
+        i+=1
+
 
 
 def idf():
