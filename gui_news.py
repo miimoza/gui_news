@@ -8,9 +8,6 @@ import requests
 def main():
 	display.move_cursor(0,0)
 	gui_news()
-	for i in range(0, 28):
-		display.move_cursor(i, 48)
-		print("|")
 
 
 def gui_news():
@@ -20,25 +17,18 @@ def gui_news():
 
     os.system('clear')
 
-    print("="*13 + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(20) + "]" + "="*13)
-    print("-"*14 + " NEWS VITRY ".center(20,"-") + "-"*5 + "-(94)-")
+
+    print("="*29 + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(20) + "]" + "="*29)
+    print("-"*30 + " NEWS VITRY ".center(20,"-") + "-"*24 + "-(94)-")
 
 
     res = getNews("ile-de-france", "val-de-marne", "vitry-sur-seine")
-
     posts, dates = res["posts"], res["dates"]
-
-    d0 = datetime.datetime.strptime(dates[0].text, '%H:%M')
-    print(d0)
-
-    page = 1;
-    i = 0;
-    while (i < 20):
+    for i in range(0, 19):
         print('[ ' + dates[i].text.ljust(5) + ' ] '+  posts[i]['title'])
 
 
 
-    getToday("ile-de-france")
 
 def getNews(region, departement = "", city = "", page=1):
     if page > 1:

@@ -9,7 +9,9 @@ while True:
 	importlib.reload(gui_news)
 	importlib.reload(display)
 
+
 	gui_news.main()
+
 
 	display.move_cursor(28, 0)
 	print("="*80)
