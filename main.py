@@ -5,7 +5,7 @@ import display
 import time
 
 while True:
-	subprocess.check_call(["git","pull"])
+	#subprocess.check_call(["git","pull"])
 	importlib.reload(gui_news)
 	importlib.reload(display)
 
