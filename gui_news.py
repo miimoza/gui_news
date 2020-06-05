@@ -25,9 +25,9 @@ def gui_news():
     print("="*53 + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(20) + "]" + "="*53)
     display.print_n(0, 1, "-"*54 + " NEWS VITRY ".center(20,"-") + "-"*54)
     printNews(news_vitry, 2, 16, 128)
-    display.print_n(0, 16, "-"*54 + " NEWS VITRY ".center(20,"-") + "-"*54)
+    display.print_n(0, 16, "-"*54 + " NEWS 94 ".center(20,"-") + "-"*54)
     printNews(news_vdm, 17, 31, 128)
-    display.print_n(0, 31, "-"*54 + " NEWS VITRY ".center(20,"-") + "-"*54)
+    display.print_n(0, 31, "-"*54 + " NEWS IDF ".center(20,"-") + "-"*54)
     printNews(news_idf, 32, 46, 128)
 
 
