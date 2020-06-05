@@ -69,8 +69,8 @@ def printTC():
 
         if i < 2:
             print("<<<" +str(i) +">>>")
-            display.print_n(0, 47 + i, (E_C_BNF.find('date').text + ' ' + E_C_BNF.find('miss').text).center(24), end='|')
-            display.print_n(20, 47 + i, (E_C_CHS.find('date').text + ' ' + (E_C_CHS.find('miss').text)).center(23))
+            display.print_n(0, 47 + i, (E_C_BNF.find('date').text + ' ' + E_C_BNF.find('miss').text).center(24))
+            display.print_n(25, 47 + i, '|' + (E_C_CHS.find('date').text + ' ' + (E_C_CHS.find('miss').text)).center(23))
         i+=1
 
 
