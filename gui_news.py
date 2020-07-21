@@ -57,11 +57,16 @@ def printNews(news, n, n_max, width):
 
 def printTC():
     # GET TRANSPORT
-    #r_C_ALL = requests.get('https://api.transilien.com/gare/87545293/depart', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
-    r_C_BNF = requests.get('https://api.transilien.com/gare/87545293/depart/87328328', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
-    r_C_CHS = requests.get('https://api.transilien.com/gare/87545293/depart/87545285', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
-    H_C_BNF = ET.fromstring(r_C_BNF.content)
-    H_C_CHS = ET.fromstring(r_C_CHS.content)
+    try:
+        #r_C_ALL = requests.get('https://api.transilien.com/gare/87545293/depart', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
+        r_C_BNF = requests.get('https://api.transilien.com/gare/87545293/depart/87328328', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
+        r_C_CHS = requests.get('https://api.transilien.com/gare/87545293/depart/87545285', auth=HTTPBasicAuth('tnhtn1120', 'C35XsX9ya'))
+        H_C_BNF = ET.fromstring(r_C_BNF.content)
+        H_C_CHS = ET.fromstring(r_C_CHS.content)
+    except Exception:
+        return
+        
+    
 
     display.print_n(0, 46, "="*43 + "< RER C >-" + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(20) + "]" + "-< RER C >" + "="*43)
     i = 0
