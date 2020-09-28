@@ -18,6 +18,6 @@ while True:
     for i in range(0, 128):
         display.move_cursor(50, i)
         print('.',end='', flush=True)
-        if i % 10 == 0:
-            gui_news.printTC()
+        #if i % 10 == 0:
+        gui_news.printTC()
         time.sleep(30)
