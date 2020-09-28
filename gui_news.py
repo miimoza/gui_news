@@ -15,9 +15,9 @@ def main():
 def gui_news():
     # GET NEWS
 
-    #news_vitry = getNews("ile-de-france",  "val-de-marne", "vitry-sur-seine")
-    #news_vdm = getNews("ile-de-france",  "val-de-marne")
-    #news_idf = getNews("ile-de-france")
+    news_vitry = getNews("ile-de-france",  "val-de-marne", "vitry-sur-seine")
+    news_vdm = getNews("ile-de-france",  "val-de-marne")
+    news_idf = getNews("ile-de-france")
 
 
     os.system('clear')
