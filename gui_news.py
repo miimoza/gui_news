@@ -40,7 +40,7 @@ def getNews(region, departement = "", city = "", page=1):
         request = "https://faitsdivers365.fr/" + region + "/" + departement + "/" + city + "/"
 
 
-    html_doc = requests.get(request)
+    html_doc = requests.get(request, verify=False)
     soup = BeautifulSoup(html_doc.text, "html.parser")
 
     posts = soup.find_all('a', {'class': 'mh-thumb-icon'})

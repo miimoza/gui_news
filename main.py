@@ -10,7 +10,7 @@ while True:
     importlib.reload(display)
 
 
-    #gui_news.main()
+    gui_news.main()
 
 
     display.move_cursor(49, 0)
