@@ -15,9 +15,9 @@ def main():
 def gui_news():
     # GET NEWS
 
-    news_vitry = getNews("ile-de-france",  "val-de-marne", "vitry-sur-seine")
-    news_vdm = getNews("ile-de-france",  "val-de-marne")
-    news_idf = getNews("ile-de-france")
+    #news_vitry = getNews("ile-de-france",  "val-de-marne", "vitry-sur-seine")
+    #news_vdm = getNews("ile-de-france",  "val-de-marne")
+    #news_idf = getNews("ile-de-france")
 
 
     os.system('clear')
@@ -65,8 +65,8 @@ def printTC():
         H_C_CHS = ET.fromstring(r_C_CHS.content)
     except Exception:
         return
-        
-    
+
+
 
     display.print_n(0, 46, "="*43 + "< RER C >-" + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(20) + "]" + "-< RER C >" + "="*43)
     i = 0
