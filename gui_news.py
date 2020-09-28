@@ -6,6 +6,8 @@ import datetime
 from requests.auth import HTTPBasicAuth
 import requests
 import xml.etree.ElementTree as ET
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def main():
     display.move_cursor(0,0)
