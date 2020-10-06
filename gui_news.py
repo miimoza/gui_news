@@ -54,7 +54,9 @@ def getNews(region, departement = "", city = "", page=1):
 def printNews(news, n, n_max, width):
     posts, dates = news["posts"], news["dates"]
     nn = n
-    for i in range(0, 19):
+
+    max = len(dates) < 19 ? len(dates) : 19
+    for i in range(0, max):
         nn = display.breakline_n(0, nn, width - 1, n_max, '[ ' + dates[i].text.ljust(5) + ' ] '+  posts[i]['title'])
 
 def printTC():
