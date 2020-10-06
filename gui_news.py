@@ -55,7 +55,7 @@ def printNews(news, n, n_max, width):
     posts, dates = news["posts"], news["dates"]
     nn = n
 
-    max = len(dates) < 19 ? len(dates) : 19
+    max = len(dates) if len(dates) < 19 else 19
     for i in range(0, max):
         nn = display.breakline_n(0, nn, width - 1, n_max, '[ ' + dates[i].text.ljust(5) + ' ] '+  posts[i]['title'])
 
