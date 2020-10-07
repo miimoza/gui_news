@@ -46,7 +46,10 @@ def getNews(region, departement = "", city = "", page=1):
     soup = BeautifulSoup(html_doc.text, "html.parser")
 
     posts = soup.find_all('a', {'class': 'mh-thumb-icon'})
-    dates = soup.find_all('span', {'class': 'mh-meta-date updated'})
+    #dates = soup.find_all('span', {'class': 'mh-meta-date updated'})
+    dates = soup.find_all('span', {'class': 'mh-meta mh-posts-large-meta'})
+
+    #print(dates)
 
     return {"posts":posts, "dates":dates};
 
@@ -55,9 +58,20 @@ def printNews(news, n, n_max, width):
     posts, dates = news["posts"], news["dates"]
     nn = n
 
-    max = len(dates) if len(dates) < 19 else 19
+    #print(len(dates))
+    #print(len(posts))
+
+    max = len(posts) if len(posts) < 19 else 19
     for i in range(0, max):
-        nn = display.breakline_n(0, nn, width - 1, n_max, '[ ' + dates[i].text.ljust(5) + ' ] '+  posts[i]['title'])
+        #print("date:", end='')
+
+        date = dates[i*2].text.strip('\n').strip('\t').strip('-').strip(' ')
+
+        #print('[' + date + ']')
+        #print(posts[])
+        nn = display.breakline_n(0, nn, width - 1, n_max, '[' + date + '] '+  posts[i]['title'])
+        #nn = display.breakline_n(0, nn, width - 1, n_max, '[ ' + 'X' + ' ] '+  posts[i]['title'])
+
 
 def printTC():
     # GET TRANSPORT
