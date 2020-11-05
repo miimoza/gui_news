@@ -3,6 +3,7 @@ import time
 import subprocess
 from threading import Thread
 from datetime import datetime
+import motor
 
 def main():
     GPIO.setwarnings(False)
@@ -21,5 +22,5 @@ def wrapper(gpio_number, function):
             function()
 
 def action_motor():
-    while True:
-        print("ca marche bien")
+    motor.steps(-300)
+    motor.steps(300)
