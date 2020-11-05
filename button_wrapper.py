@@ -22,5 +22,7 @@ def wrapper(gpio_number, function):
             function()
 
 def action_motor():
+    while True:
+        print("super")
     motor.steps(-300)
     motor.steps(300)
