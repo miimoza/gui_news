@@ -8,7 +8,7 @@ def main():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
 
-    thread_button_1 = Thread(target = wrapper, args = (18,action_motor))
+    thread_button_1 = Thread(target = wrapper, args = (5,action_motor))
 
     thread_button_1.start()
     print("[button_wrapper] Launch Thread function")
@@ -21,4 +21,5 @@ def wrapper(gpio_number, function):
             function()
 
 def action_motor():
-    print("ca marche bien")
+    while True:
+        print("ca marche bien")
