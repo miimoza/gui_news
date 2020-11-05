@@ -3,6 +3,11 @@ import importlib
 import gui_news
 import display
 import time
+import button_wrapper
+
+
+importlib.reload(button_wrapper)
+button_wrapper.main()
 
 while True:
 	#subprocess.check_call(["git","pull"])
