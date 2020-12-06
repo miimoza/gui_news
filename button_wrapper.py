@@ -14,6 +14,7 @@ def main():
     thread_button_2 = Thread(target = wrapper, args = (2,apply_reboot))
 
     thread_button_1.start()
+    thread_button_2.start()
     print("[button_wrapper] Launch Thread function")
 
 def wrapper(gpio_number, function):
@@ -28,4 +29,5 @@ def action_motor():
     motor.steps(300)
 
 def apply_reboot():
+    print("REBOOT")
     os.system("sudo reboot")
