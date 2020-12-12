@@ -18,7 +18,7 @@ while True:
 	gui_news.main()
 
 
-	display.move_cursor(28, 0)
+	display.move_cursor(48, 0)
 	print("="*80)
 	for i in range(0, 80):
 	    print('.',end='', flush=True)
