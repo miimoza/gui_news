@@ -25,7 +25,7 @@ def wrapper(gpio_number, function):
             function()
 
 def action_motor():
-    os.system("feed.py")
+    os.system("python3 ~/BIN/feed.py")
     #motor.steps(-300)
     #motor.steps(300)
 
