@@ -25,8 +25,9 @@ def wrapper(gpio_number, function):
             function()
 
 def action_motor():
-    motor.steps(-300)
-    motor.steps(300)
+    os.system("feed.py")
+    #motor.steps(-300)
+    #motor.steps(300)
 
 def apply_reboot():
     print("REBOOT")
