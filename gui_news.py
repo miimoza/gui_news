@@ -20,6 +20,7 @@ def gui_news():
     news_vitry = getNews("ile-de-france",  "val-de-marne", "vitry-sur-seine")
     news_vdm = getNews("ile-de-france",  "val-de-marne")
     news_idf = getNews("ile-de-france")
+    news_idf = getNews("")
 
 
     os.system('clear')
@@ -31,6 +32,8 @@ def gui_news():
     printNews(news_vdm, 17, 31, 128)
     display.print_n(0, 31, "-"*54 + " NEWS IDF ".center(20,"-") + "-"*54)
     printNews(news_idf, 32, 46, 128)
+    display.print_n(0, 31, "-"*54 + " NEWS FR ".center(20,"-") + "-"*54)
+    printNews(news_idf, 47, 61, 128)
 
 
 
