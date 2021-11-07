@@ -10,7 +10,7 @@ import time
 #button_wrapper.main()
 
 while True:
-	#subprocess.check_call(["git","pull"])
+	subprocess.check_call(["git","pull"])
 	importlib.reload(gui_news)
 	importlib.reload(display)
 
@@ -22,4 +22,4 @@ while True:
 	print("="*80)
 	for i in range(0, 80):
 	    print('.',end='', flush=True)
-	    time.sleep(0.2)
+	    time.sleep(1)
