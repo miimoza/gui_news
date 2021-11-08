@@ -19,7 +19,7 @@ while True:
 
 
 	display.move_cursor(62, 0)
-	print("="*125)
-	for i in range(0, 125):
+	print("="*127)
+	for i in range(0, 127):
 	    print('.',end='', flush=True)
 	    time.sleep(1)
