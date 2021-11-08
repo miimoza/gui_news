@@ -32,7 +32,7 @@ def gui_news():
     printNews(news_vdm, 17, 31, 128)
     display.print_n(0, 31, "-"*54 + " NEWS IDF ".center(20,"-") + "-"*54)
     printNews(news_idf, 32, 46, 128)
-    display.print_n(0, 31, "-"*54 + " NEWS FR ".center(20,"-") + "-"*54)
+    display.print_n(0, 46, "-"*54 + " NEWS FR ".center(20,"-") + "-"*54)
     printNews(news_idf, 47, 61, 128)
 
 
