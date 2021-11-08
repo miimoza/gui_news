@@ -17,23 +17,20 @@ def main():
 def gui_news():
     # GET NEWS
 
-    news_vitry = getNews("ile-de-france",  "val-de-marne", "vitry-sur-seine")
-    news_vdm = getNews("ile-de-france",  "val-de-marne")
+    news_vitry = getNews("ile-de-france",  "hauts-de-seine", "courbevoie")
+    news_vdm = getNews("ile-de-france",  "hauts-de-seine")
     news_idf = getNews("ile-de-france")
-    news_idf = getNews("")
 
 
     os.system('clear')
 
     print("="*53 + "[" + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")).center(20) + "]" + "="*53)
-    display.print_n(0, 1, "-"*54 + " NEWS VITRY ".center(20,"-") + "-"*54)
+    display.print_n(0, 1, "-"*54 + " NEWS COURBEVOIE ".center(20,"-") + "-"*54)
     printNews(news_vitry, 2, 16, 128)
-    display.print_n(0, 16, "-"*54 + " NEWS 94 ".center(20,"-") + "-"*54)
+    display.print_n(0, 16, "-"*54 + " NEWS 92 ".center(20,"-") + "-"*54)
     printNews(news_vdm, 17, 31, 128)
     display.print_n(0, 31, "-"*54 + " NEWS IDF ".center(20,"-") + "-"*54)
     printNews(news_idf, 32, 46, 128)
-    display.print_n(0, 46, "-"*54 + " NEWS FR ".center(20,"-") + "-"*54)
-    printNews(news_idf, 47, 61, 128)
 
 
 
